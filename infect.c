@@ -1,7 +1,4 @@
 #include <stdio.h>
-#define _OPEN_SYS_ITOA_EXT
-#include <stdlib.h>
-#include <stdbool.h> 
 
 void main() {
     FILE *file;
