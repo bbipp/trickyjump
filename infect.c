@@ -23,7 +23,7 @@ void main() {
     };
 
     while( (c = fgetc(file)) != EOF ) {
-        
+
             if (i == 1080) {
                 int k;
                 for (k = 0; k < 45; k++) {
@@ -36,13 +36,13 @@ void main() {
             if (i == 1169) {
                 int k;
                 for (k = 0; k < 12; k++) {
-                    fwrite(&ucDataBlock2[k],1,1,write_ptr); // write 10 bytes from our buffer
+                    fwrite(&ucDataBlock2[k],1,1,write_ptr);
                     c = fgetc(file);
                 }
                 i = 1180;
             }
             
-            fwrite(&c,1,1,write_ptr); // write 10 bytes from our buffer
+            fwrite(&c,1,1,write_ptr);
 
             i += 1;    
     }
